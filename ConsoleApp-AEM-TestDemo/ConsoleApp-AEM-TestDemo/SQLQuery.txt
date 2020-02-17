@@ -1,0 +1,8 @@
+﻿SELECT p.uniqueName AS PlatformName, w.id AS WellId, p.id AS PlatformId,
+w.uniqueName AS UniqueName, w.latitude AS Latitude, w.longitude AS Longitude, w.createdAt AS CreatedAt, w.updatedAt AS UpdatedAt 
+FROM 
+(SELECT w.platformId, MAX(w.updatedAt) AS MaxDate
+	FROM WellDto w
+	GROUP BY w.platformId) sw JOIN
+PlatformDto p ON p.id = sw.platformId JOIN
+WellDto w ON w.updatedAt = sw.MaxDate
