@@ -1,38 +1,24 @@
-﻿using System;
+﻿using ConsoleApp_AEM_TestDemo.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp_AEM_TestDemo.Models;
-using Newtonsoft.Json;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
-using Newtonsoft.Json.Linq;
 
 namespace ConsoleApp_AEM_TestDemo
 {
 
-    public interface IWebApiService
-    {
-        Task Login();
-        Task GetPlatformWellActual();
-    }
-    public class WebApiService: IWebApiService
+    public class WebApiService
     {
         static string Baseurl = "http://test-demo.aem-enersol.com/";
         static string username = "user@aemenersol.com";
         static string password = "Test@123";
         static string accessToken;
 
-        public WebApiService()
-        {
-        }
-
-
-            public async Task Login()
+        public async Task Login()
             {
 
                 Console.WriteLine("Sending login request...");
@@ -58,7 +44,7 @@ namespace ConsoleApp_AEM_TestDemo
                 };
             }
 
-            public async Task GetPlatformWellActual()                                                                                                         
+        public async Task GetPlatformWellActual()                                                                                                         
             {
 
                 Console.WriteLine("Sending GetPlatformWellActual request...");
@@ -76,7 +62,6 @@ namespace ConsoleApp_AEM_TestDemo
                     {
                     var json = Res.Content.ReadAsStringAsync().Result.ToString();
                     List<PlatformDto> platformDto = JsonConvert.DeserializeObject<List<PlatformDto>>(json);
-
                     Console.WriteLine("Platform Count : " + platformDto.Count);
                     AddOrUpdateDatabase(platformDto);
                     }
@@ -84,7 +69,7 @@ namespace ConsoleApp_AEM_TestDemo
                 Console.ReadKey();
             }
 
-            static void AddOrUpdateDatabase(List<PlatformDto> platformDto)
+        private void AddOrUpdateDatabase(List<PlatformDto> platformDto)
             {
             AemTestContext aemTestContext = new AemTestContext();
             List<PlatformDto> newData = new List<PlatformDto>();
@@ -102,21 +87,20 @@ namespace ConsoleApp_AEM_TestDemo
             Update(existingData);
             }
 
-        private static void Update(List<PlatformDto> existingData)
+        private void Update(List<PlatformDto> existingData)
         {
             AemTestContext aemTestContext = new AemTestContext();
             aemTestContext.UpdateRange(existingData);
             aemTestContext.SaveChangesAsync();
         }
 
-        private static void Add(List<PlatformDto> newData)
+        private void Add(List<PlatformDto> newData)
         {
             AemTestContext aemTestContext = new AemTestContext();
             aemTestContext.AddRange(newData);
             aemTestContext.SaveChangesAsync();
         }
-
     }
 
-    }
+ }
 

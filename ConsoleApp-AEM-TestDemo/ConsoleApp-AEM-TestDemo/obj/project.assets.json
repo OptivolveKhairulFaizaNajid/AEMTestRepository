@@ -6964,11 +6964,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AEMTestRepository\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo.csproj",
       "projectName": "ConsoleApp-AEM-TestDemo",
-      "projectPath": "C:\\Users\\User\\source\\repos\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AEMTestRepository\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AEMTestRepository\\ConsoleApp-AEM-TestDemo\\ConsoleApp-AEM-TestDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
